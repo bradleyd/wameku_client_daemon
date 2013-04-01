@@ -1,5 +1,6 @@
 require 'drb'
 require 'pp'
+$SAFE = 1  # disable eval() and friends
 worker = DRbObject.new(nil, "druby://127.0.0.1:1337")
 p worker.plugins
 #p worker.run_me
