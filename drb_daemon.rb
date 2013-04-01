@@ -39,6 +39,8 @@ class Wameku
 
 end
 
-$SAFE = 1 # disable eval() and friends
+if __FILE__ == $0
+#$SAFE = 1 # disable eval() and friends
 DRb.start_service("druby://127.0.0.1:1337", Wameku.new)
 DRb.thread.join
+end
