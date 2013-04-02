@@ -7,23 +7,23 @@ The daemon is pluggable.  You can add any plugins to a `plugins/` directory.
 The daemon will run each plugin on demand.
 
 
-@Todo need to turn plugin module into a gem to be included into a project
-@Todo decide whether to turn this into a gem or something else
+@ Todo need to turn plugin module into a gem to be included into a project
+@ Todo decide whether to turn this into a gem or something else
 
 
 ##### Sample plugin  
 
 a plugin can have any instance methods you wish.  They only have to return a string
 
-As you can see, each plugin must include `Plugin` "namespace this"
+As you can see, each plugin must include `WakekuPlugin::Common`
 
 ```ruby
 
 require "sys/cpu"
-require_relative "plugin"
+require "wameku_plugin"
 
 class CpuPlugin
-  include Plugin
+  include WamekuPlugin::Common
   include Sys
 
   def initialize
