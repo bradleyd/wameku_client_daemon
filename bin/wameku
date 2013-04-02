@@ -1,0 +1,9 @@
+#!/usr/bin/ruby
+# encoding: utf-8
+lib = File.expand_path(File.dirname(__FILE__) + '/../lib')
+$LOAD_PATH.unshift(lib) if File.directory?(lib) && !$LOAD_PATH.include?(lib)
+require 'drb'
+require 'wameku'
+
+DRb.start_service("druby://127.0.0.1:1337", Wameku::Daemon.new)
+DRb.thread.join

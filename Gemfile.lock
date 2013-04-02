@@ -1,5 +1,5 @@
 PATH
-  remote: /home/bradleyd/Code/ruby/wameku_client/wameku_plugin
+  remote: /home/bradleyd/Code/ruby/wameku/wameku_plugin
   specs:
     wameku_plugin (0.0.1)
 
