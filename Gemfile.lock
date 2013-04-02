@@ -1,3 +1,8 @@
+PATH
+  remote: /home/bradleyd/Code/ruby/wameku_client/wameku_plugin
+  specs:
+    wameku_plugin (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -10,9 +15,11 @@ GEM
     mocha (0.13.3)
       metaclass (~> 0.0.1)
     multi_json (1.7.2)
+    rake (10.0.3)
     sys-cpu (0.7.0)
       ffi (>= 1.0.0)
     sys-host (0.6.2)
+    test-unit (2.5.4)
 
 PLATFORMS
   ruby
@@ -20,5 +27,8 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   mocha
+  rake
   sys-cpu
   sys-host
+  test-unit
+  wameku_plugin!

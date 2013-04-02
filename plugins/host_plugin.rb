@@ -1,8 +1,7 @@
 require "sys/host"
-require_relative "plugin"
 
 class HostPlugin
-  include Plugin
+  include WamekuPlugin::Common
   include Sys
 
   def initialize

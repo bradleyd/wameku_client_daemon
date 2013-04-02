@@ -1,8 +1,7 @@
 require "sys/cpu"
-require_relative "plugin"
 
 class CpuPlugin
-  include Plugin
+  include WamekuPlugin::Common
   include Sys
 
   def initialize
