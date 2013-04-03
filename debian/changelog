@@ -1,5 +1,13 @@
 wameku-client-daemon (0.1) unsatable; urgency=low
 
-  * Initial release.
+  * Updated need for i18n.
 
  -- Bradley D Smith <bradleydsmith@gmail.com>  Wed, 03 Apr 2013 14:24:57 -0400
+
+wameku-client-daemon (0.1) unsatable; urgency=low
+
+  * Initial release.
+ 
+ -- Bradley D Smith <bradleydsmith@gmail.com>  Wed, 03 Apr 2013 14:24:57 -0400
+
+ 

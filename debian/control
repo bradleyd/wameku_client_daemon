@@ -5,7 +5,7 @@ Maintainer: Bradley D Smith <bradleydsmith@gmail.com>
 Build-Depends: cdbs, debhelper (>= 8.0.0), ruby-pkg-tools
 # ruby1.9.1-full, ruby1.9.1-dev
 Standards-Version: 3.9.4
-Homepage: <insert the upstream URL, if relevant>
+Homepage: http://github.com/bradleyd/wameku_client_daemon
 #Vcs-Git: git://git.debian.org/collab-maint/wameku-client-daemon.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/wameku-client-daemon.git;a=summary
 
