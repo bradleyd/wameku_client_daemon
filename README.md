@@ -41,3 +41,46 @@ end
 ```
 
 
+##### Build instructions
+
+Create a tar.gz of directory
+
+```bash
+ tar cavf wameku-client-daemon-0.x.tar.gz wameku-client-daemon-0.x
+```
+
+Next--make sure you are in package root dir--create the template debian/ system
+
+```bash
+h_make -c gpl -s -b -f ../wameku-client-daemon-0.x.tar.gz
+```
+
+Remove unnecessary files
+```bash
+rm debian/*.ex debian/*.EX debian/READ* debian/dirs
+```
+
+edit the debian/rules if needed
+```bash
+#!/usr/bin/make -f
+# -*- mode: makefile; coding: utf-8 -*-
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/ruby-pkg-tools/1/class/ruby-setup-rb.mk
+```
+
+change debian/control to liking
+
+
+Then build source 
+```bash
+debuild -us -uc
+```
+
+#### one note--need ruby 1.8 to use these commands.  I soft linked 
+```bash
+sudo ln -s /usr/bin/1.9.1 /usr/bin/1.8
+```
+
+it is a hack, but worked!
+# @todo need to convert to gem and maybe use gem2deb
