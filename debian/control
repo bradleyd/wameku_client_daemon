@@ -1,0 +1,24 @@
+Source: wameku-client-daemon
+Section: misc
+Priority: extra
+Maintainer: Bradley D Smith <bradleydsmith@gmail.com>
+Build-Depends: cdbs, debhelper (>= 8.0.0), ruby-pkg-tools
+# ruby1.9.1-full, ruby1.9.1-dev
+Standards-Version: 3.9.4
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Git: git://git.debian.org/collab-maint/wameku-client-daemon.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/wameku-client-daemon.git;a=summary
+
+Package: wameku-client-daemon1.9.1
+Architecture: any
+Depends: ruby1.9.1, cdbs, debhelper (>= 8.0.0), ruby-pkg-tools, ruby1.9.1-dev, ${shlibs:Depends}, ${misc:Depends}
+Description: Daemon that reports host info based on plugins to the mothership
+ Daemon that reports host info based on plugins to the mothership
+
+Package: wameku-client-daemon
+Architecture: any
+Depends: wameku-client-daemon1.9.1, ${misc:Depends}
+#ruby1.9.1, cdbs, debhelper (>= 8.0.0), ruby-pkg-tools, ruby1.9.1-dev, ${shlibs:Depends}, ${misc:Depends}
+Description: Daemon that reports host info based on plugins to the mothership
+ Dummy package for wameku-client-daemon1.9.1
+
