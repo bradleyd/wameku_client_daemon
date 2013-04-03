@@ -1,5 +1,11 @@
 wameku-client-daemon (0.1) unstable; urgency=low
 
+  * Add host ip detection.
+
+ -- Bradley D Smith <bradleydsmith@gmail.com>  Wed, 03 Apr 2013 15:47:57 -0400
+
+wameku-client-daemon (0.1) unstable; urgency=low
+
   * Updated need for i18n.
 
  -- Bradley D Smith <bradleydsmith@gmail.com>  Wed, 03 Apr 2013 15:24:57 -0400
