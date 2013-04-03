@@ -1,11 +1,11 @@
-# take care of pid files here
-#
 require "etc"
 module Wameku
   module Utils
+
+    # handles all the app disk structure
     class AppHome
       class << self
-        
+
         def current_user
           Etc.getlogin
         end
@@ -31,6 +31,8 @@ module Wameku
         end
       end
     end
+
+    # handles all pid creation and destruction
     class Pid
       class << self
         def create(pid, pidfile)
