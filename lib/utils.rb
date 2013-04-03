@@ -1,4 +1,5 @@
 require "etc"
+require 'socket'
 module Wameku
   module Utils
 
@@ -66,6 +67,16 @@ module Wameku
             $stderr.puts "While signaling the PID, unexpected #{e.class}: #{e}"
             false
           end
+        end
+      end
+    end
+
+    # get host ip address
+    class Ip
+      class << self
+        def my_ipv4_address
+          ip=Socket.ip_address_list.detect{|intf| intf.ipv4_private?}
+          ip.ip_address if ip
         end
       end
     end

@@ -24,7 +24,8 @@ trap("SIGINT") {
 
 # write the pid file to tmp/
 Wameku::Utils::Pid.create(pid, config["pidfile"])
-DRb.start_service("druby://127.0.0.1:1337", Wameku::Daemon.new(config: Wameku::Config))
+host_ip = Wameku::Utils::Ip.my_ipv4_address
+DRb.start_service("druby://#{host_ip}:1337", Wameku::Daemon.new(config: Wameku::Config))
 DRb.thread.join
 
 

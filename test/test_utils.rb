@@ -5,6 +5,7 @@ class TestUtils < Test::Unit::TestCase
     @uhome = Wameku::Utils::AppHome
     @pid   = Wameku::Utils::Pid
   end
+
   def test_current_user
     assert @uhome.current_user
   end
@@ -36,4 +37,7 @@ class TestUtils < Test::Unit::TestCase
     refute(File.exist?(TEST_PID))
   end
 
+  def test_ip_address
+    assert Wameku::Utils::Ip.my_ipv4_address
+  end
 end
