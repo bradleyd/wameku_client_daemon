@@ -13,7 +13,7 @@ Package: wameku-client-daemon1.9.1
 Architecture: any
 Depends: ruby1.9.1, cdbs, debhelper (>= 8.0.0), ruby-pkg-tools, ruby1.9.1-dev, ${shlibs:Depends}, ${misc:Depends}
 Description: Daemon that reports host info based on plugins to the mothership
- Daemon that reports host info based on plugins to the mothership
+ Daemon that reports host system info, based on user create plugins, to the mothership
 
 Package: wameku-client-daemon
 Architecture: any
