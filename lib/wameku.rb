@@ -2,6 +2,7 @@ require "drb"
 require 'active_support/all'
 require "thread"
 require "config"
+require "utils"
 begin
   require "wameku_plugin"
 rescue Exception => e
@@ -13,11 +14,11 @@ end
 # drb client that runs plugins from a plugin directory
 module Wameku
   class Daemon
-    def initialize
+    attr_reader :config
+    def initialize(opts={})
       @plugins = []
-      @mutex = Mutex.new
-      @config = Config.load
-      p @config
+      @mutex   = Mutex.new
+      @config  = opts.fetch(:config) { {"plugins"=>"~/.pulgins"} }
       load_plugins
     end
 
@@ -26,23 +27,18 @@ module Wameku
     end
 
     def load_plugins
-      @mutex.synchronize do
-        @plugins = []
-        Dir[File.dirname(__FILE__) + '/plugins/*.rb'].each {|file| 
-          require file
-          file_name = File.basename(file, '.rb')
-          @plugins << file_name.camelcase.constantize.new unless file_name == "plugin"
-        }
-      end
+      @plugins = []
+      Dir[Wameku::Utils::AppHome.app_plugin_path + "/*.rb"].each {|file| 
+        require file
+        file_name = File.basename(file, '.rb')
+        @plugins << file_name.camelcase.constantize.new unless file_name == "plugin"
+      }
     end
 
     def run_me
       res = []
-      #res << {host: 'localhost'}
       @plugins.each do |plugin|
         res << plugin.run
-        #puts Thread.current
-        #puts "VAL: #{plugin}"
       end
       res
     end

@@ -1,9 +1,30 @@
-#!/usr/bin/ruby
+#! /usr/bin/ruby
 # encoding: utf-8
 lib = File.expand_path(File.dirname(__FILE__) + '/../lib')
 $LOAD_PATH.unshift(lib) if File.directory?(lib) && !$LOAD_PATH.include?(lib)
 require 'drb'
 require 'wameku'
 
-DRb.start_service("druby://127.0.0.1:1337", Wameku::Daemon.new)
+# set the pid
+pid = Process.pid
+# setup directory structure for daemon
+Wameku::Utils::AppHome.create_config_directory
+Wameku::Utils::AppHome.create_plugin_directory
+
+# load up the config
+config = Wameku::Config.load
+
+
+trap("SIGINT") { 
+  $stdout.write "Shutting down!\n"
+  Wameku::Utils::Pid.cleanup(pid, config["pidfile"]) 
+  exit
+}
+
+
+# write the pid file to tmp/
+Wameku::Utils::Pid.create(pid, config["pidfile"])
+DRb.start_service("druby://127.0.0.1:1337", Wameku::Daemon.new(config: Wameku::Config))
 DRb.thread.join
+
+
