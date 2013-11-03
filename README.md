@@ -7,8 +7,6 @@ The daemon is pluggable.  You can add any plugins to a `plugins/` directory.
 The daemon will run each plugin on demand.
 
 
-@ Todo need to turn plugin module into a gem to be included into a project
-@ Todo decide whether to turn this into a gem or something else
 
 
 ##### Sample plugin  
